@@ -18,16 +18,16 @@ void setup() {
 void draw() {
   background(0);
   fill(255);
-  int timeLeft = 30 - (millis()/1000);
-   if (timeLeft == 0) {
-       dead = true;
+  
  
-     }
-
   if (!dead) {
 
     if (frameCount % speed == 0) {
       student.update();
+    }
+    int timeLeft = 30 - (millis()/1000);
+    if (timeLeft == 0) {
+      dead = true;
     }
     student.show();
     student.eat();
@@ -43,7 +43,8 @@ void draw() {
     textAlign(CENTER, CENTER);
     text("Student time to clean up!\nClick to start" + "\nHighscore: " + highscore, width/2, height/2);
   }
-   
+
+
 }
 
 void newFood() {

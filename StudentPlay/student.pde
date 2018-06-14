@@ -50,6 +50,7 @@ class Student {
       rect(p.x, p.y, grid, grid);
     }
   }
+
 }
 
 void keyPressed() {
