@@ -1,3 +1,4 @@
+/*
 class Timer {
   float Time;
   
@@ -21,3 +22,4 @@ class Timer {
     Time -= 1/frameRate;
   }
 }
+*/
