@@ -1,22 +1,23 @@
-int grid = 20; //How big each grid square will be
+int grid = 20;
 PVector trash;
 int speed = 10;
 boolean dead = true;
 int highscore = 0;
-
+Timer startTimer;
 Student student;
 
 void setup() {
-  size(500, 500);
+  size(800, 600);
   student = new Student();
   trash = new PVector();
   newFood();
-  //frameRate(8);
+  startTimer = new Timer(30);
 }
 
 void draw() {
   background(0);
   fill(255);
+
   if (!dead) {
 
     if (frameCount % speed == 0) {
@@ -30,11 +31,14 @@ void draw() {
     textSize(15);
     fill(255);
     text("Score: " + student.score, 10, 20);
+    text("Timer: " + startTimer.getTime(),90,20);
+        startTimer.countDown();
   } else {
     textSize(25);
     textAlign(CENTER, CENTER);
     text("Student time to clean up!\nClick to start" + "\nHighscore: " + highscore, width/2, height/2);
   }
+   
 }
 
 void newFood() {
@@ -50,5 +54,7 @@ void mousePressed() {
     newFood();
     speed = 10;
     dead = false;
+
+    
   }
 }
