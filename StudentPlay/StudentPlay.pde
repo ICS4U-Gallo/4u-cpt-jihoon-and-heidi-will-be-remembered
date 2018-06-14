@@ -2,8 +2,10 @@ int grid = 20;
 PVector trash;
 int speed = 10;
 boolean dead = true;
-int highscore = 0;
-Timer startTimer;
+int highscore;
+int score;
+int timeLeft;
+
 Student student;
 
 void setup() {
@@ -11,12 +13,16 @@ void setup() {
   student = new Student();
   trash = new PVector();
   newFood();
-  startTimer = new Timer(30);
 }
 
 void draw() {
   background(0);
   fill(255);
+  int timeLeft = 30 - (millis()/1000);
+   if (timeLeft == 0) {
+       dead = true;
+ 
+     }
 
   if (!dead) {
 
@@ -31,8 +37,7 @@ void draw() {
     textSize(15);
     fill(255);
     text("Score: " + student.score, 10, 20);
-    text("Timer: " + startTimer.getTime(),90,20);
-        startTimer.countDown();
+    text("Timer: " + timeLeft,90,20);
   } else {
     textSize(25);
     textAlign(CENTER, CENTER);

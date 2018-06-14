@@ -6,7 +6,8 @@ class Student {
   int moveX = 0;
   int moveY = 0;
   int score = 0;
-  
+
+
 
   Student() {
     pos = new PVector(0, 0);
@@ -29,11 +30,7 @@ class Student {
     if (hist.size() > len) {
       hist.remove(0);
     }
-
-     if (startTimer == 0) {
-       dead = true;
-       if (score > highscore) highscore = score;
-     }
+    if (score > highscore) highscore = score;
 
   }
 
