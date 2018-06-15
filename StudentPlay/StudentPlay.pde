@@ -4,13 +4,14 @@ int speed;
 boolean dead = true;
 int highscore;
 int score;
-int timeLeft;
+Timer timeLeft;
 
 Student student;
 
 void setup() {
   size(800, 600);
   student = new Student();
+  timeLeft = new Timer(5);
   trash = new PVector();
   newFood();
 }
@@ -18,26 +19,29 @@ void setup() {
 void draw() {
   background(0);
   fill(255);
-  
+  if (timeLeft.getTime() == 0) {
+    dead = true;
+  }
+
+
  
   if (!dead) {
 
     if (frameCount % speed == 0) {
       student.update();
     }
-    int timeLeft = 30 - (millis()/1000);
-    if (timeLeft == 0) {
-      dead = true;
-    }
+    timeLeft.countDown();
+    
+    
     student.show();
-    student.clean();
+    student.eat();
     fill(255, 0, 0);
     rect(trash.x, trash.y, grid, grid);
     textAlign(LEFT);
     textSize(15);
     fill(255);
     text("Score: " + student.score, 10, 20);
-    text("Timer: " + timeLeft,90,20);
+    text("Timer: " + timeLeft.getTime(),90,20);
   } else {
     textSize(25);
     textAlign(CENTER, CENTER);
@@ -60,6 +64,7 @@ void mousePressed() {
     newFood();
     speed = 5;
     dead = false;
+
 
     
   }
