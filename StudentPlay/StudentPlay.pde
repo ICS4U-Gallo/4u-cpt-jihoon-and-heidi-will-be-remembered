@@ -1,6 +1,6 @@
 int grid = 20;
 PVector trash;
-int speed = 10;
+int speed;
 boolean dead = true;
 int highscore;
 int score;
@@ -30,7 +30,7 @@ void draw() {
       dead = true;
     }
     student.show();
-    student.eat();
+    student.clean();
     fill(255, 0, 0);
     rect(trash.x, trash.y, grid, grid);
     textAlign(LEFT);
@@ -58,7 +58,7 @@ void mousePressed() {
   if (dead) {
     student = new Student();
     newFood();
-    speed = 10;
+    speed = 5;
     dead = false;
 
     
