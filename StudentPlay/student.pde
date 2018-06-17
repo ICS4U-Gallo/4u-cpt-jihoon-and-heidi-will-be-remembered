@@ -26,6 +26,7 @@ class Student {
 
     pos.x = (pos.x + width) % width;
     pos.y = (pos.y + height) % height;
+    
 
     if (hist.size() > len) {
       hist.remove(0);
@@ -34,9 +35,10 @@ class Student {
 
   }
 
-  void eat() {
+  void clean() {
     if (pos.x == trash.x && pos.y == trash.y) {
       score++;
+      if (speed > 5) speed--;
       newFood();
     }
   }

@@ -3,12 +3,10 @@ class Timer {
   
   Timer(float set){
     Time = set;
-
   }
   float getTime()
   {
     return(Time);
-
   }
   void setTime(float set)
   {
