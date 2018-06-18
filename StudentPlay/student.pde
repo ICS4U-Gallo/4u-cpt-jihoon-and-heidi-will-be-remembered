@@ -38,8 +38,7 @@ class Student {
   void clean() {
     if (pos.x == trash.x && pos.y == trash.y) {
       score++;
-      if (speed > 5) speed--;
-      newFood();
+      newTrash();
     }
   }
 
