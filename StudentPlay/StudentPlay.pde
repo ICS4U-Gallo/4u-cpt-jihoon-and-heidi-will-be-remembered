@@ -13,7 +13,7 @@ void setup() {
   student = new Student();
   trash = new PVector();
   timer = new Timer(50);
-  newFood();
+  newTrash();
 }
 
 void draw() {
@@ -43,7 +43,7 @@ void draw() {
         fill(225);
         textSize(25);
         textAlign(CENTER);
-        text("THE END"+ "\nHighscore: " + highscore, width/2, height/2);
+        text("THE END"+ "\nscore: " + highscore, width/2, height/2);
       }
   }
   
@@ -52,13 +52,13 @@ void draw() {
     else {
     textSize(25);
     textAlign(CENTER, CENTER);
-    text("Student time to clean up!\nClick to start" + "\nHighscore: " + highscore, width/2, height/2);
+    text("Student time to clean up!\nClick to start", 400,300);
     }
 
   }
 
 
-void newFood() {
+void newTrash() {
   trash.x = floor(random(width));
   trash.y = floor(random(height));
   trash.x = floor(trash.x/grid) * grid;
@@ -68,7 +68,7 @@ void newFood() {
 void mousePressed() {
   if (dead) {
     student = new Student();
-    newFood();
+    newTrash();
     speed = 5;
     dead = false;
 
